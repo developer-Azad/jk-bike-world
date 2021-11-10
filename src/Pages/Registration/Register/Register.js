@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { useHistory } from 'react-router';
+import { Button, CircularProgress, Container, Grid, TextField, Typography } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
+import { Alert } from '@mui/material';
+import login from '../../../images/login.png';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
+    const history = useHistory();
     const {user, isLoading, registerUser, authError} = useAuth();
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
 
@@ -20,52 +25,69 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        alert('successfully registered');
-        registerUser(loginData.email, loginData.password, loginData.name);
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
     
     return (
-        <div className="login">
-            <div>
-                <h2>Please Register</h2>
-                <h3>{}</h3>
-                <form onSubmit={handleNewRegister}>
-                    <input className="input-field" onBlur={handleOnChange} type="text" name="name"
-                     placeholder="Your Name" required />
-                     <br /><br />
-                    <input className="input-field" onBlur={handleOnChange} type="email" name="email"
-                     placeholder="Your Email" required/>
-                     <br /><br />
-                    <input className="input-field" onBlur={handleOnChange} type="password" name="password"
-                     placeholder="password" required/>
-                    <br /><br />
-                    <input className="input-field" onBlur={handleOnChange} type="password" name="password2"
-                     placeholder="Confirm password" required/>
-                    <br />
-                    <input className="btn btn-warning my-3" type="submit" value="Submit" />
-                </form>
-                {isLoading && 
-                <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-                }
-                {user?.email && 
-                <div className="alert alert-success" role="alert">
-                Successfully Registered
-              </div>
-                }
-                {authError && 
-                <div className="alert alert-success" role="alert">
-                {authError}
-              </div>
-                }
-                <p>Already registerd? <Link className="link-color" style={{color:''}} to="/login">Login</Link></p>
-                {/* <div>-----------------or----------------</div>
-                <button onClick={signInUsingGoogle} className="btn btn-warning">Google Sign In</button>
-                </div> */}
-        </div>
-        </div>
+        <Container>
+        <Grid container spacing={2}>
+        <Grid item sx={{mt: 8}} xs={12} md={6}>
+            <Typography variant="body1" gutterBottom>Register</Typography>
+         {!isLoading &&
+             <form onSubmit={handleNewRegister}>
+            <TextField
+            sx={{width: '75%', m: 1}}
+            id="standard-basic"
+            label="Your Name"
+            name="name"
+            onBlur={handleOnBlur}
+            variant="standard"
+            />
+            <TextField
+            sx={{width: '75%', m: 1}}
+            id="standard-basic"
+            label="Your Email"
+            name="email"
+            type="email"
+            onBlur={handleOnBlur}
+            variant="standard"
+            />
+            <TextField
+            sx={{width: '75%', m: 1}}
+            id="standard-basic"
+            label="Your Password"
+            type="password"
+            name="password"
+            onBlur={handleOnBlur}
+            variant="standard"
+            />
+            <TextField
+            sx={{width: '75%', m: 1}}
+            id="standard-basic"
+            label="Retype Your Password"
+            type="password"
+            name="password2"
+            onBlur={handleOnBlur}
+            variant="standard"
+            />
+            
+            <Button  sx={{width: '75%', m: 1}} type="submit"
+             variant="contained">Register</Button>
+             <NavLink style={{textDecoration: 'none'}} to="/login">
+            <Button  
+             variant="text">Already Registered? Please Login</Button>
+            </NavLink>
+         </form>}
+         {isLoading && <CircularProgress/>}
+         {user?.email && <Alert severity="success">successfully registered</Alert>}
+            {authError && <Alert severity="error">{authError}</Alert>}
+      </Grid>
+        <Grid item xs={12} md={6}>
+         <img style={{width: '100%'}} src={login} alt="" />
+      </Grid>
+      </Grid>
+    </Container>
     );
 };
 

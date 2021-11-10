@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-    signOut, updateProfile, onAuthStateChanged,  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider,
+    signInWithPopup, signOut, updateProfile, onAuthStateChanged,  } from "firebase/auth";
 import initializeFirebase from '../Pages/Registration/Firebase/firebase.init';
 
 
 initializeFirebase();
 const useFirebase = () => {
     const [user, setUser] = useState();
+  
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
 
    
 
     const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
     
     //-----------------user registration--------------------
     const registerUser = (email, password, name, history) => {
@@ -33,7 +35,7 @@ const useFirebase = () => {
         }).catch((error) => {
 
         });
-        history.push('/');
+        history.replace('/');
       })
       .catch((error) => {
         // const errorCode = error.code;
@@ -49,13 +51,25 @@ const useFirebase = () => {
           signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const destination = location?.state?.from || '/';
-      history.push(destination);
+      history.replace(destination);
       setAuthError('');
     })
     .catch((error) => {
       setAuthError(error.message);
     })
     .finally (() => setIsLoading(false));
+      }
+
+      const signInWithGoogle = (location, history) => {
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+        .then((result) => {
+          setAuthError('');
+          const user = result.user;
+          saveUser(user.email, user.displayName, 'PUT');
+        }).catch((error) => {
+          setAuthError(error.message);
+        }).finally (() => setIsLoading(false));
       }
 
 // observer user state
@@ -100,6 +114,7 @@ const useFirebase = () => {
         authError,
         registerUser,
         loginUser,
+        signInWithGoogle,
         logOut
     }
 };

@@ -1,0 +1,12 @@
+.service-form{
+    background-color: rgb(167, 253, 224);
+    text-align: center;
+    padding: 5%;
+}
+
+.service-form input{
+    background-color: rgb(167, 253, 224);
+    padding: 5px;
+    margin-top: 10px;
+    width: 80%;
+}

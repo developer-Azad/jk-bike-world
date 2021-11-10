@@ -1,5 +1,12 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
@@ -8,26 +15,42 @@ import './Navigation.css'
 const Navigation = () => {
   const {user, logOut} = useAuth();
     return (
-        <>
-        <Navbar className="bg-primary" variant="dark">
-          <Container>
-          <Link to="/home"><Navbar.Brand >Navbar</Navbar.Brand></Link>
-          <Nav className="me-auto">
-            <NavLink className="link" to="/home">Home</NavLink>
-            <NavLink className="link" to="/dashboard">Dashboard</NavLink>
-            <NavLink className="link" to="/home">Home</NavLink>
-          </Nav>
+        <div>
+            <Box sx={{ flexGrow: 1 }}>
+              <AppBar position="static">
+                <Toolbar>
+                <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+                >
+               <MenuIcon />
+             </IconButton>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Bike World
+          </Typography>
+          <Link  style={{textDecoration: 'none', color: 'white'}} to="/home"><Button color="inherit">Home</Button></Link>
           {
-            user?.email ?
-            <button className="btn-primary border-none" 
-                onClick={logOut}>Signed : {user.displayName} <span className="text-danger fw-bold">Log Out</span></button>
-                : <Link to="/login" className="text-white">Login </Link>
-          }
-          {/* <NavLink className="link"  to="/login">Login</NavLink> */}
+            user?.email ? 
+            <Box>
+          <Button onClick={logOut} color="inherit">Log out</Button>
+          <NavLink style={{textDecoration: 'none', color: 'white'}} to="/dashboard">
+          <Button color="inherit">Dashboard</Button>
+          </NavLink>
+          </Box>
+            :
+            <NavLink style={{textDecoration: 'none', color: 'white'}} to="/login">
+          <Button color="inherit">Login</Button>
+          </NavLink>
           
-          </Container>
-        </Navbar>
-      </>
+          }
+          
+        </Toolbar>
+      </AppBar>
+    </Box>
+        </div>
     );
 };
 

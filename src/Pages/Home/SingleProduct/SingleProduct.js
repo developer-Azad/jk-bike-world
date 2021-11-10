@@ -1,20 +1,36 @@
-import React from 'react';
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const SingleProduct = ({product}) => {
     const {title, img} = product;
     return (
-        <div className="col">
-        <div className="card h-100">
-          <img src={img} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
+      <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        component="img"
+        height="200"
+        margin="10"
+        image={img}
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
     );
 };
 
