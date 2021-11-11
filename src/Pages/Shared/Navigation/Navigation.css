@@ -1,5 +1,9 @@
-.link{
-    color: white;
+.navbar Button{
+    color:salmon;
     text-decoration: none;
     margin-right: 10px;
+}
+
+.navbar{
+    background-color:aqua;
 }

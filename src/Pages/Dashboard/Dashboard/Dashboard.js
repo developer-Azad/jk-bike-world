@@ -1,4 +1,3 @@
-
 import  React from 'react';
 import PropTypes from 'prop-types';
 import MailIcon from '@material-ui/icons/Mail';
@@ -6,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { AppBar, Button, CssBaseline, Divider, Drawer, Grid, IconButton,
+import { AppBar, Button, CssBaseline, Divider, Drawer, IconButton,
      List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { Box } from '@mui/system';
 import {
@@ -14,7 +13,6 @@ import {
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch
 } from "react-router-dom";
 import DashboardHome from '../DashboardHome/DashboardHome';
@@ -22,12 +20,17 @@ import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
 import AddProduct from '../Admin/AddProduct/AddProduct';
 import Navigation from '../../Shared/Navigation/Navigation';
 import AddReview from '../Users/AddReview/AddReview';
-
+import AdminData from '../Admin/AdminData/AdminData';
+import MyOrders from '../../Orders/MyOrders/MyOrders';
+import ManageAllOrders from '../../Orders/ManageAllOrders/ManageAllOrders';
 
 
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
+  const {admin} = props;
+
+  // console.log(admin);
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -36,6 +39,8 @@ const Dashboard = (props) => {
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
+
+   
   
     const drawer = (
       <div>
@@ -45,6 +50,9 @@ const Dashboard = (props) => {
         <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
         <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
         <Link to={`${url}/addProduct`}><Button color="inherit">Add Product</Button></Link>
+        <Link to={`${url}/admin`}><Button color="inherit">AdminData</Button></Link>
+        <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link>
+        <Link to={`${url}/manageAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
@@ -62,9 +70,11 @@ const Dashboard = (props) => {
 
     return (
         <div>
-             <Navigation></Navigation>
+            
             <Box sx={{ display: 'flex' }}>
+            
       <CssBaseline />
+      
       <AppBar
         position="fixed"
         sx={{
@@ -72,6 +82,8 @@ const Dashboard = (props) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
+      <Navigation></Navigation>
+        
         <Toolbar>
           <IconButton
             color="inherit"
@@ -81,7 +93,9 @@ const Dashboard = (props) => {
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
+            
           </IconButton>
+          
           <Typography variant="h6" noWrap component="div">
             Dashboard
           </Typography>
@@ -136,6 +150,15 @@ const Dashboard = (props) => {
         </Route>
         <Route path={`${path}/addReview`}>
             <AddReview></AddReview>
+        </Route>
+        <Route path={`${path}/admin`}>
+        <AdminData></AdminData>
+        </Route>
+        <Route path={`${path}/myorders`}>
+       <MyOrders></MyOrders>
+        </Route>
+        <Route path={`${path}/manageAllOrders`}>
+       <ManageAllOrders></ManageAllOrders>
         </Route>
       </Switch>
       </Box>

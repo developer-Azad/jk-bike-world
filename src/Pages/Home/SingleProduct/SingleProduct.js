@@ -5,10 +5,20 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Grid } from '@material-ui/core';
+import { useHistory } from 'react-router';
 
 const SingleProduct = ({product}) => {
-    const {title, img} = product;
+    const {_id, name, img, description} = product;
+    const history = useHistory();
+
+    const handlePurchase = () =>{
+      history.push(`/purchaseOrder/${_id}`);
+    }
+
+
     return (
+      <Grid item xs={12} sm={6} md={4} lg={4}>
       <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
@@ -19,18 +29,17 @@ const SingleProduct = ({product}) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        <Typography variant="body2">
+          {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button onClick={handlePurchase} size="small">Share</Button>
       </CardActions>
     </Card>
+    </Grid>
     );
 };
 

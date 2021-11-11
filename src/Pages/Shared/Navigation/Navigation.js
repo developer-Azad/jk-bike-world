@@ -1,5 +1,4 @@
 import React from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,14 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-
 import './Navigation.css'
 
 const Navigation = () => {
   const {user, logOut} = useAuth();
     return (
-        <div>
-            <Box sx={{ flexGrow: 1 }}>
+          <div className="navbar">
+            <Box className="navbar" sx={{ flexGrow: 1 }} >
               <AppBar position="static">
                 <Toolbar>
                 <IconButton
@@ -50,7 +48,7 @@ const Navigation = () => {
         </Toolbar>
       </AppBar>
     </Box>
-        </div>
+    </div>
     );
 };
 

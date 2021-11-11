@@ -12,7 +12,7 @@ import Login from './Pages/Registration/Login/Login';
 import Register from './Pages/Registration/Register/Register';
 import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './Pages/Registration/PrivateRoute/PrivateRoute';
-
+import PurchaseOrder from './Pages/Orders/PurchaseOrder/PurchaseOrder';
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
       <Router>
       <Navigation></Navigation>
       <Switch>
-          {/* <PrivateRoute path="/appointment">
-            <Appointment />
-  </PrivateRoute>*/}
           <PrivateRoute path="/dashboard">
             <Dashboard /> 
+          </PrivateRoute>
+          <PrivateRoute path="/purchaseOrder/:orderId">
+          <PurchaseOrder></PurchaseOrder>
           </PrivateRoute>
           <Route exact path="/">
             <Home />
