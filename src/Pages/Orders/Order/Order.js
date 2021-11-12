@@ -41,6 +41,9 @@ const Order = ({order}) => {
         <Typography variant="body2">
           {description}
         </Typography>
+        <Typography variant="body2">
+          {order.status}
+        </Typography>
       </CardContent>
     <Grid  className="buy-btn">
     <Button onClick={() => handleRemove(order._id)} size="small">Remove Order</Button>

@@ -28,7 +28,7 @@ import useAdmin from '../../../hooks/useAdmin';
 import useAuth from '../../../hooks/useAuth';
 
 
-const drawerWidth = 200;
+const drawerWidth = 180;
 
 const Dashboard = (props) => {
  const {user} = useAuth();
@@ -57,17 +57,19 @@ const Dashboard = (props) => {
         {
           admin?.role ?
           <div>
-            <Link to={`${url}/addReview`}><Button color="inherit">Add Review</Button></Link>
-        <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
+             <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
+          <Link to={`${url}/manageAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
         <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
         <Link to={`${url}/addProduct`}><Button color="inherit">Add Product</Button></Link>
-        <Link to={`${url}/admin`}><Button color="inherit">AdminData</Button></Link>
+        <Link to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
           </div>
           :
           <div>
+            <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
+             <Link to={`${url}/payment`}><Button color="inherit">Payment</Button></Link>
              <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link>
-        <Link to={`${url}/manageAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
-        <Link to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
+             <Link to={`${url}/addReview`}><Button color="inherit">Add Review</Button></Link>
+       
           </div>
         }
         

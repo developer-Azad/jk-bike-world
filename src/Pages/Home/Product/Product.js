@@ -8,7 +8,7 @@ import { useHistory } from 'react-router';
 import './Product.css'
 
 const Product = ({product}) => {
-    const {_id, name, img, description} = product;
+    const {_id, name, img, description, price} = product;
     const history = useHistory();
 
     const handlePurchase = () =>{
@@ -27,6 +27,9 @@ const Product = ({product}) => {
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {name}
+        </Typography>
+        <Typography gutterBottom variant="h4" component="div">
+          ${price}
         </Typography>
         <Typography variant="body2">
           {description}

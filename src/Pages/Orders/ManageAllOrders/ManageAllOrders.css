@@ -13,9 +13,10 @@
 
 
 .card Button{
-    background-color: crimson;
-    color: gold;
+    background-color:rgb(250, 60, 26);
+    color:white;
     font-weight: 700;
     font-size: 10px;
+    width: 90%;
 
 }

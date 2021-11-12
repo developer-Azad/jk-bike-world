@@ -55,14 +55,13 @@ const PurchaseOrder = () => {
         <Typography gutterBottom variant="h5" component="div">
           {orders.name}
         </Typography>
+        <Typography gutterBottom variant="h4" component="div">
+          {orders.price}
+        </Typography>
         <Typography variant="body2">
           {orders.description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
     </Grid>
 
