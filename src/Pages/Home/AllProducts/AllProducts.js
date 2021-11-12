@@ -13,10 +13,7 @@ const AllProducts = () => {
       return (
           <div>
                <Container maxWidth="lg">
-               <h1>Products</h1>
-               <Typography sx={{ fontWeight: 500, m: 2, color: 'success.main' }} variant="h6" component="div">
-            OUR Products
-          </Typography>
+               <h1>Bike Galary</h1>
         <Grid container spacing={3} columns={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
           {
             products.map(product => <Product

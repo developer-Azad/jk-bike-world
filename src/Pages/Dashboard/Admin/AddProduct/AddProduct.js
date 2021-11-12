@@ -16,20 +16,20 @@ const AddProduct = () => {
 
         }
     })
-  }
+  } 
     return (
         <div className="service-form">
             <h2 className="text-4xl font-bold text-danger">Add A Product</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 50 })} placeholder="Service Name"/>
       <br />
-      <input {...register("description", { required: true})} placeholder="Service description"/>
+      <input className="description-field" {...register("description", { required: true})} placeholder="Service description"/>
       <br />
       <input {...register("price", { required: true})} placeholder="Price"/>
       <br />
       <input type="text" {...register("img", { required: true })} placeholder="image url"/>
       <br />
-      <input className="confirm-btn submit-field" type="submit" />
+      <button  className="submit-btn"> <input type="submit" /></button>
     </form>
     </div>
     );

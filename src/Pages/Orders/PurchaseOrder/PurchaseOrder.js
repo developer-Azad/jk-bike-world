@@ -62,7 +62,7 @@ const PurchaseOrder = () => {
           {orders.name}
         </Typography>
         <Typography gutterBottom variant="h4" component="div">
-          {orders.price}
+          ${orders.price}
         </Typography>
         <Typography variant="body2">
           {orders.description}

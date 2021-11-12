@@ -22,7 +22,7 @@ const MakeAdmin = () => {
    
       <input {...register("email", { required: true, maxLength: 50 })} placeholder="Your email"/>
       <br />
-      <input className="confirm-btn submit-field" type="submit" />
+      <button  className="submit-btn"> <input type="submit" /></button>
     </form>
         </div>
     );

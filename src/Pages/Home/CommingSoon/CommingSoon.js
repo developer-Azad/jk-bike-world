@@ -26,11 +26,11 @@ const CommingSoon = () => {
           component="img"
           height="250"
           margin="10"
-          image="https://news.maxabout.com/wp-content/uploads/2019/01/FZS-Gray-Cyan-Blue.jpg"
+          image="https://i.pinimg.com/736x/83/25/6a/83256a17d1ece78dc81fd8c67904cb7d--used-suzuki-motorcycles-honda-bikes.jpg"
           alt="green iguana"
         />
         <CardContent>
-          <h2>Yamaha 160</h2>
+          <h2>Suzuki</h2>
         </CardContent>
       </Card>
       </Grid>
@@ -40,11 +40,11 @@ const CommingSoon = () => {
           component="img"
           height="250"
           margin="10"
-          image="https://news.maxabout.com/wp-content/uploads/2019/01/FZS-Gray-Cyan-Blue.jpg"
+          image="https://servicemanualsgsxr.com/wp-content/uploads/2021/06/suzuki-gsx-s950-2021-specifications-12-750x536.jpg"
           alt="green iguana"
         />
         <CardContent>
-          <h2>Yamaha 160</h2>
+          <h2>Suzuki</h2>
         </CardContent>
       </Card>
       </Grid>
