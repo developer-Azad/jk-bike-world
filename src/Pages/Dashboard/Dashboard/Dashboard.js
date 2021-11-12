@@ -26,6 +26,7 @@ import ManageAllOrders from '../../Orders/ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../Admin/ManageProducts/ManageProducts';
 import useAdmin from '../../../hooks/useAdmin';
 import useAuth from '../../../hooks/useAuth';
+import Payment from '../Users/Payment/Payment';
 
 
 const drawerWidth = 180;
@@ -183,6 +184,9 @@ const Dashboard = (props) => {
         </Route>
         <Route path={`${path}/manageProducts`}>
        <ManageProducts></ManageProducts>
+        </Route>
+        <Route path={`${path}/payment`}>
+       <Payment></Payment>
         </Route>
       </Switch>
       </Box>

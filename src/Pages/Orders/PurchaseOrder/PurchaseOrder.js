@@ -1,8 +1,10 @@
+import { Container } from '@material-ui/core';
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import './PurchaseOrder.css';
 
 const PurchaseOrder = () => {
     const {orderId} = useParams();
@@ -40,13 +42,17 @@ const PurchaseOrder = () => {
         })
       }
     return (
-        <div>
-            
-            <Grid item xs={12} sm={12} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Container maxWidth="lg">
+            <h1>Product Details</h1>
+            <Grid item  container
+  direction="column"
+  justifyContent="center"
+  margin="30px"
+  alignItems="center">
+      <Card sx={{ maxWidth: 700 }}>
       <CardMedia
         component="img"
-        height="200"
+        height="400"
         margin="10"
         image={orders.img}
         alt="green iguana"
@@ -65,7 +71,7 @@ const PurchaseOrder = () => {
     </Card>
     </Grid>
 
-            <h2>Place Your Order</h2>
+    <h2>Place Your Order</h2>
             <div>
             <form className="service-form" onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 50 })} placeholder="Your name" value={user.displayName}/>
@@ -76,10 +82,11 @@ const PurchaseOrder = () => {
       <br /><br />
       <input type="number" {...register("mobile")} placeholder="Mobile"/>
       <br /><br />
-      <input className="submit-btn" type="submit" />
+     <button  className="submit-btn"> <input type="submit" /></button>
     </form>
             </div>
-            </div>
+            </Container>
+
     );
 };
 

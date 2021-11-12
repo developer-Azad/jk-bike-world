@@ -1,0 +1,11 @@
+.dashboard{
+    background-color: rgb(18, 234, 241);
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard h2{
+    font-size: 100px;
+}

@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid} from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 
@@ -12,10 +12,7 @@ const Products = () => {
   }, [])
     return (
              <Container maxWidth="lg">
-             <h1>Products</h1>
-             <Typography sx={{ fontWeight: 500, m: 2, color: 'success.main' }} variant="h6" component="div">
-          OUR Products
-        </Typography>
+             <h1>Feature Products</h1>
       <Grid container spacing={3} columns={{ xs: 1, sm: 1, md: 1, lg: 1 }}>
         {
           products.slice(0, 6).map(product => <Product

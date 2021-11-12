@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { Button, CircularProgress, Container, Grid, TextField, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { Alert } from '@mui/material';
-import login from '../../../images/login.png';
+import './Register.css'
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -30,10 +30,15 @@ const Register = () => {
     }
     
     return (
-        <Container>
+        <Container className="mui-form">
         <Grid container spacing={2}>
-        <Grid item sx={{mt: 8}} xs={12} md={6}>
-            <Typography variant="body1" gutterBottom>Register</Typography>
+        <Grid item
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        >
+            <Typography variant="h4" gutterBottom>Register</Typography>
          {!isLoading &&
              <form onSubmit={handleNewRegister}>
             <TextField
@@ -44,6 +49,7 @@ const Register = () => {
             onBlur={handleOnBlur}
             variant="standard"
             />
+            <br />
             <TextField
             sx={{width: '75%', m: 1}}
             id="standard-basic"
@@ -53,6 +59,7 @@ const Register = () => {
             onBlur={handleOnBlur}
             variant="standard"
             />
+            <br />
             <TextField
             sx={{width: '75%', m: 1}}
             id="standard-basic"
@@ -62,6 +69,7 @@ const Register = () => {
             onBlur={handleOnBlur}
             variant="standard"
             />
+            <br />
             <TextField
             sx={{width: '75%', m: 1}}
             id="standard-basic"
@@ -71,9 +79,11 @@ const Register = () => {
             onBlur={handleOnBlur}
             variant="standard"
             />
-            
-            <Button  sx={{width: '75%', m: 1}} type="submit"
+            <br />
+            <br />
+            <Button  sx={{width: '75%'}} type="submit"
              variant="contained">Register</Button>
+             <br />
              <NavLink style={{textDecoration: 'none'}} to="/login">
             <Button  
              variant="text">Already Registered? Please Login</Button>
@@ -82,9 +92,6 @@ const Register = () => {
          {isLoading && <CircularProgress/>}
          {user?.email && <Alert severity="success">successfully registered</Alert>}
             {authError && <Alert severity="error">{authError}</Alert>}
-      </Grid>
-        <Grid item xs={12} md={6}>
-         <img style={{width: '100%'}} src={login} alt="" />
       </Grid>
       </Grid>
     </Container>

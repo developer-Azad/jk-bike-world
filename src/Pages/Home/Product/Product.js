@@ -19,7 +19,7 @@ const Product = ({product}) => {
       <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        height="200"
+        height="250"
         margin="10"
         image={img}
         alt="green iguana"

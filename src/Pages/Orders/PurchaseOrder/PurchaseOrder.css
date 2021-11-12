@@ -1,0 +1,14 @@
+.submit-btn{
+    width: 50%;
+    background: none;
+    border: none;
+   
+}
+
+.submit-btn input{
+    background-color: tomato;
+    width: 50%;
+    border-radius: 30px;
+    border: none;
+    height: 40px;
+}
