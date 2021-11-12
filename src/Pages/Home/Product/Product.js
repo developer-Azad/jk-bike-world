@@ -1,22 +1,44 @@
-// import React from 'react';
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, Grid } from '@material-ui/core';
+import { useHistory } from 'react-router';
+import './Product.css'
 
-// const Product = ({}) => {
-//     const {} = 
-//     return (
-       
-//         <div class="col">
-//           <div class="card h-100">
-//             <img src="..." class="card-img-top" alt="..."/>
-//             <div class="card-body">
-//               <h5 class="card-title">Card title</h5>
-//               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-//             </div>
-//             <div class="card-footer">
-//               <small class="text-muted">Last updated 3 mins ago</small>
-//             </div>
-//           </div>
-//         </div>
-//     );
-// };
+const Product = ({product}) => {
+    const {_id, name, img, description} = product;
+    const history = useHistory();
 
-// export default Product;
+    const handlePurchase = () =>{
+      history.push(`/purchaseOrder/${_id}`);
+    }
+    return (
+      <Grid  item xs={12} sm={6} md={4} lg={4}>
+      <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        component="img"
+        height="200"
+        margin="10"
+        image={img}
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {name}
+        </Typography>
+        <Typography variant="body2">
+          {description}
+        </Typography>
+      </CardContent>
+    <Grid  className="buy-btn">
+    <Button onClick={handlePurchase}>Buy Now</Button>
+        </Grid>
+    </Card>
+    </Grid>
+    );
+};
+
+
+export default Product;

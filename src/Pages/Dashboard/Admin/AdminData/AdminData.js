@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
-import Dashboard from '../../Dashboard/Dashboard';
 
 
 const AdminData = () => {
@@ -14,7 +13,7 @@ fetch('http://localhost:5000/users')
 const admins = users.filter(admin => user.email === admin.email)
 const admin = admins[0];
 // const adminRole = admin.role;
-// console.log(admin.role);
+console.log(admin);
     return (
         <div>
            <h2>Admin data</h2>

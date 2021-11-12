@@ -13,6 +13,8 @@ import Register from './Pages/Registration/Register/Register';
 import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './Pages/Registration/PrivateRoute/PrivateRoute';
 import PurchaseOrder from './Pages/Orders/PurchaseOrder/PurchaseOrder';
+import Footer from './Pages/Shared/Footer/Footer';
+import AllProducts from './Pages/Home/AllProducts/AllProducts';
 
 function App() {
   return (
@@ -38,10 +40,14 @@ function App() {
           <Route path="/register">
            <Register />
           </Route> 
+          <Route path="/allProducts">
+           <AllProducts />
+          </Route> 
           <Route path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
+        <Footer></Footer>
     </Router>
     </AuthProvider>
   );

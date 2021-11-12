@@ -1,0 +1,11 @@
+.buy-btn{
+    text-align: center;
+}
+.buy-btn Button{
+    color: white;
+    text-align: center;
+    background-color: tomato;
+    width: 60%;
+    height: 30px;
+    margin-bottom: 10px;
+}

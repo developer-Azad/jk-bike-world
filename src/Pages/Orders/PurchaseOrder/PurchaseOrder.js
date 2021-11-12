@@ -68,7 +68,7 @@ const PurchaseOrder = () => {
 
             <h2>Place Your Order</h2>
             <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="service-form" onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 50 })} placeholder="Your name" value={user.displayName}/>
       <br /><br />
       <input {...register("email" )} placeholder="Email" value={user.email} readOnly/>
