@@ -12,9 +12,6 @@ const ManageAllOrders = () => {
         .then(data => setOrders(data))
     }, [])
 
-    
-
-
     return (
         <div>
              <Container maxWidth="lg">

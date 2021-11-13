@@ -36,7 +36,7 @@ const ManageProduct = ({product}) => {
           {name}
         </Typography>
         <Typography gutterBottom variant="h4" component="div">
-          {price}
+          ${price}
         </Typography>
         <Typography variant="body2">
           {description}
