@@ -11,8 +11,6 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
 
-   
-
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     
@@ -60,6 +58,7 @@ const useFirebase = () => {
     .finally (() => setIsLoading(false));
       }
 
+      //-----------------Google Sign In--------------------
       const signInWithGoogle = (location, history) => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
@@ -74,7 +73,7 @@ const useFirebase = () => {
         }).finally (() => setIsLoading(false));
       }
 
-// observer user state
+// -----------------observer user state----------------------
     useEffect( () => {
       let unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -87,6 +86,7 @@ const useFirebase = () => {
           return () => unsubscribe;
     }, [auth])
 
+    // -----------------user log out----------------------
     const logOut = () => {
         setIsLoading(true);
           signOut(auth).then(() => {
@@ -97,7 +97,7 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
       }
 
-
+// -----------------sending user data to database----------------------
       const saveUser = (email, displayName, method) => {
           const user = {email, displayName};
           fetch('http://localhost:5000/users', {

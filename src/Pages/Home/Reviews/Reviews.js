@@ -18,7 +18,7 @@ const Reviews = () => {
           <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
           Happy client reviews
         </Typography>
-      <Grid container spacing={3} columns={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid container spacing={3} columns={{ xs: 12, sm: 12, md: 12 }}>
         {
           reviews.map(UserReview => <Review
           key={UserReview._id}

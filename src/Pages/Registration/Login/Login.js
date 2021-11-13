@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import { Alert } from '@mui/material';
-import { Button, CircularProgress, Container, Grid, TextField, Typography } from '@material-ui/core';
+import { Button, CircularProgress, Grid, TextField, Typography } from '@material-ui/core';
 import Footer from '../../Shared/Footer/Footer';
 import { Box } from '@mui/system';
 

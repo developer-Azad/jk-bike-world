@@ -1,15 +1,11 @@
 import  React from 'react';
 import PropTypes from 'prop-types';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { AppBar, Button, CssBaseline, Divider, Drawer, IconButton,
-     List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { AppBar, Button, CssBaseline, Divider, Drawer, IconButton } from '@mui/material';
 import { Box } from '@mui/system';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link,
@@ -19,7 +15,6 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
 import AddProduct from '../Admin/AddProduct/AddProduct';
 import AddReview from '../Users/AddReview/AddReview';
-import AdminData from '../Admin/AdminData/AdminData';
 import MyOrders from '../../Orders/MyOrders/MyOrders';
 import ManageAllOrders from '../../Orders/ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../Admin/ManageProducts/ManageProducts';
@@ -159,9 +154,6 @@ const Dashboard = (props) => {
         </Route>
         <Route path={`${path}/addReview`}>
             <AddReview></AddReview>
-        </Route>
-        <Route path={`${path}/admin`}>
-        <AdminData></AdminData>
         </Route>
         <Route path={`${path}/myorders`}>
        <MyOrders></MyOrders>

@@ -1,12 +1,8 @@
 import { Container, Grid, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import useAdmin from '../../../../hooks/useAdmin';
-import useAuth from '../../../../hooks/useAuth';
 import ManageProduct from '../ManageProduct/ManageProduct';
 
 const ManageProducts = () => {
-    const {user} = useAuth();
-    const {admins} = useAdmin();
    
     const [products, setProducts] = useState([]);
 

@@ -10,8 +10,10 @@ const Banner = () => {
         history.push('/allProducts');
     }
     return (
- <div className="banner-img">
-    <img  src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201806/big_dog_0.jpeg?Hj9xcINeQkp9emv9UULlHzWGNSZeIWov&size=770:433" alt="" />
+ <div >
+    <div className="banner-img">
+    <img  src="https://imgd.aeplcdn.com/0x0/bikewaleimg/ec/464/img/m/Hero-Racing-EBR-1190RS-1128_l.jpg" alt="" />
+    </div>
     <div className="side-name">
     <h1 >JK Bike World</h1>
     <Button onClick={handleProductExplore} variant="contained">Explore</Button>
