@@ -33,13 +33,13 @@ import { NavLink } from 'react-router-dom';
 const homeBanner = {
     background: `url(${bg})`,
     backgroundSize: 'cover',
-    // backgroundRepeat: 'no-repeat',
+    backgroundRepeat: 'no-repeat',
     paddingTop: 150,
     paddingBottom: 150,
     /* 
     use following two properties and values to make transparent background 
     */
-    backgroundColor: 'rgba(46, 80, 68, 0.7)',
+    backgroundColor: 'rgba(46, 80, 68, 0.5)',
     backgroundBlendMode: 'darken, luminosity'
 }
 

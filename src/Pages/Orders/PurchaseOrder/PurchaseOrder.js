@@ -21,7 +21,7 @@ const PurchaseOrder = () => {
         fetch(`https://salty-beyond-99419.herokuapp.com/bikes/${orderId}`)
         .then(res => res.json())
         .then(data => setOrders(data))
-    }, []) 
+    }, [orderId]) 
 
     const onSubmit = data => {
         data.order = orders;
