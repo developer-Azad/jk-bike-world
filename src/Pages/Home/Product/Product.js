@@ -16,10 +16,10 @@ const Product = ({product}) => {
     }
     return (
       <Grid  item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 500 }}>
+      <Card sx={{ height: '100%'}}>
       <CardMedia
         component="img"
-        height="250"
+        height="45%"
         margin="10"
         image={img}
         alt="green iguana"
@@ -36,7 +36,7 @@ const Product = ({product}) => {
         </Typography>
       </CardContent>
     <Grid  className="buy-btn">
-    <Button onClick={handlePurchase}>Buy Now</Button>
+    <Button sx={{ my: '10px'}} onClick={handlePurchase}>Buy Now</Button>
         </Grid>
     </Card>
     </Grid>

@@ -5,7 +5,6 @@ import './Footer.css'
 const Footer = () => {
     return (
         <Grid className="footer" sx={{ bgcolor: 'black' }}>
-        <h2 style={{textAlign: 'center'}}>JK Bike World</h2>
         <Grid 
          
         container spacing={2}

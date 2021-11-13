@@ -1,9 +1,10 @@
 import { Container } from '@material-ui/core';
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
 import './PurchaseOrder.css';
 
 const PurchaseOrder = () => {
@@ -42,6 +43,7 @@ const PurchaseOrder = () => {
         })
       }
     return (
+      <>
       <Container maxWidth="lg">
             <h1>Product Details</h1>
             <Grid item  container
@@ -86,6 +88,8 @@ const PurchaseOrder = () => {
     </form>
             </div>
             </Container>
+            <Footer></Footer>
+            </>
 
     );
 };

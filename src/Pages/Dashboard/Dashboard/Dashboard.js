@@ -18,7 +18,6 @@ import {
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
 import AddProduct from '../Admin/AddProduct/AddProduct';
-import Navigation from '../../Shared/Navigation/Navigation';
 import AddReview from '../Users/AddReview/AddReview';
 import AdminData from '../Admin/AdminData/AdminData';
 import MyOrders from '../../Orders/MyOrders/MyOrders';
@@ -58,7 +57,8 @@ const Dashboard = (props) => {
         {
           admin?.role ?
           <div>
-             <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
+          <Link to="/home"><Button color="inherit">Home Page</Button></Link>
+          <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
           <Link to={`${url}/manageAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
         <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
         <Link to={`${url}/addProduct`}><Button color="inherit">Add Product</Button></Link>
@@ -66,6 +66,7 @@ const Dashboard = (props) => {
           </div>
           :
           <div>
+            <Link to="/home"><Button color="inherit">Home Page</Button></Link>
             <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
              <Link to={`${url}/payment`}><Button color="inherit">Payment</Button></Link>
              <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link>
@@ -73,18 +74,6 @@ const Dashboard = (props) => {
        
           </div>
         }
-        
-       
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </div>
     );
   
@@ -104,8 +93,6 @@ const Dashboard = (props) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-      <Navigation></Navigation>
-        
         <Toolbar>
           <IconButton
             color="inherit"

@@ -5,6 +5,8 @@ import { Button, CircularProgress, Container, Grid, TextField, Typography } from
 import { NavLink } from 'react-router-dom';
 import { Alert } from '@mui/material';
 import './Register.css'
+import { Box } from '@mui/system';
+import Footer from '../../Shared/Footer/Footer';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -30,7 +32,8 @@ const Register = () => {
     }
     
     return (
-        <Container className="mui-form">
+        <>
+        <Box className="mui-form">
         <Grid container spacing={2}>
         <Grid item
         container
@@ -94,7 +97,9 @@ const Register = () => {
             {authError && <Alert severity="error">{authError}</Alert>}
       </Grid>
       </Grid>
-    </Container>
+    </Box>
+    <Footer></Footer>
+    </>
     );
 };
 

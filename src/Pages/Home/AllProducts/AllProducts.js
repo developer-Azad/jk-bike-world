@@ -1,5 +1,6 @@
 import { Container, Grid, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import Product from '../Product/Product';
 
 const AllProducts = () => {
@@ -23,7 +24,7 @@ const AllProducts = () => {
           }
         </Grid>
               </Container>
-              
+              <Footer></Footer>
           </div>
       );
   };

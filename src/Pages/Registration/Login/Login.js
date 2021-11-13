@@ -5,6 +5,8 @@ import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import { Alert } from '@mui/material';
 import { Button, CircularProgress, Container, Grid, TextField, Typography } from '@material-ui/core';
+import Footer from '../../Shared/Footer/Footer';
+import { Box } from '@mui/system';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
@@ -32,9 +34,11 @@ const Login = () => {
     }
 
     return (
-        <Container className="mui-form">
-            <Grid container spacing={2}>
+        <>
+        <Box sx={{p: '30px'}} className="mui-form">
+            <Grid container >
             <Grid item 
+            spacing={0}
             container
             direction="column"
             justifyContent="center"
@@ -67,8 +71,7 @@ const Login = () => {
                  <br />
                  
                  <NavLink style={{textDecoration: 'none'}} to="/register">
-                <Button  
-                 variant="text">New User? Please Register
+                <Button sx={{color: 'blue'}} variant="text">New User? Please Register
                  </Button>
                 </NavLink>
                 {isLoading && <CircularProgress/>}
@@ -81,7 +84,12 @@ const Login = () => {
             </Button> 
           </Grid> 
           </Grid>
-        </Container>
+        
+        </Box>
+        <Box>
+          <Footer></Footer>
+          </Box>
+          </>
     );
 };
 
