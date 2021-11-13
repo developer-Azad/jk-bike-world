@@ -4,7 +4,7 @@ const useAdmin = () => {
     const [admins, setAdmins] = useState([]);
 
    useEffect( () => {
-    fetch('http://localhost:5000/users')
+    fetch('https://salty-beyond-99419.herokuapp.com/users')
     .then(res => res.json())
     .then(data => setAdmins(data))
    }, [])

@@ -6,7 +6,7 @@ const ManageOrder = ({order}) => {
 
     const updatedStatus = {status: 'Shipped'};
     const handleUpdateStatus = id => {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`https://salty-beyond-99419.herokuapp.com/orders/${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

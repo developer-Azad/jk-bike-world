@@ -18,7 +18,7 @@ const PurchaseOrder = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/bikes/${orderId}`)
+        fetch(`https://salty-beyond-99419.herokuapp.com/bikes/${orderId}`)
         .then(res => res.json())
         .then(data => setOrders(data))
     }, []) 
@@ -27,7 +27,7 @@ const PurchaseOrder = () => {
         data.order = orders;
         data.status = 'Pending';
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://salty-beyond-99419.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

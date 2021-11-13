@@ -6,7 +6,7 @@ const ManageProduct = ({product}) => {
     const [orders, setOrders] = useState([]);
 
     const handleRemove = id => {
-        const url = `http://localhost:5000/bikes/${id}`;
+        const url = `https://salty-beyond-99419.herokuapp.com/bikes/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
