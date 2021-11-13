@@ -11,8 +11,11 @@ const Banner = () => {
     }
     return (
  <div className="banner-img">
-    <img  src="https://st.depositphotos.com/1068095/5153/i/950/depositphotos_51533337-stock-photo-motorbike-racing.jpg" alt="" />
+    <img  src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201806/big_dog_0.jpeg?Hj9xcINeQkp9emv9UULlHzWGNSZeIWov&size=770:433" alt="" />
+    <div className="side-name">
+    <h1 >JK Bike World</h1>
     <Button onClick={handleProductExplore} variant="contained">Explore</Button>
+    </div>
     </div>
     );
 };

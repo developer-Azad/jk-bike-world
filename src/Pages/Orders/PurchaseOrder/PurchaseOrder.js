@@ -72,22 +72,21 @@ const PurchaseOrder = () => {
       </CardContent>
     </Card>
     </Grid>
-
-    <h2>Place Your Order</h2>
-            <div>
-            <form className="service-form" onSubmit={handleSubmit(onSubmit)}>
+            </Container>
+            <div className="service-form">
+            <h2>Place Your Order</h2>
+            <form  onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 50 })} placeholder="Your name" value={user.displayName}/>
       <br /><br />
       <input {...register("email" )} placeholder="Email" value={user.email} readOnly/>
       <br /><br />
-      <input {...register("address" )} placeholder="Address"/>
+      <input {...register("address", { required: true} )} placeholder="Address"/>
       <br /><br />
       <input type="number" {...register("mobile")} placeholder="Mobile"/>
       <br /><br />
      <button  className="submit-btn"> <input type="submit" /></button>
     </form>
             </div>
-            </Container>
             <Footer></Footer>
             </>
 

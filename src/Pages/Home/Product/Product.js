@@ -28,7 +28,7 @@ const Product = ({product}) => {
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
-        <Typography gutterBottom variant="h4" component="div">
+        <Typography className="price" gutterBottom variant="h4" component="div">
           ${price}
         </Typography>
         <Typography variant="body2">

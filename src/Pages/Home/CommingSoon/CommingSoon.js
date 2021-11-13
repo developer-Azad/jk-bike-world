@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Container, Grid, Typography } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Container, Grid } from '@material-ui/core';
 import React from 'react';
 
 const CommingSoon = () => {
@@ -10,9 +10,9 @@ const CommingSoon = () => {
         <Card sx={{ maxWidth: 300 }}>
         <CardMedia
           component="img"
-          height="250"
+          height="300"
           margin="10"
-          image="https://news.maxabout.com/wp-content/uploads/2019/01/FZS-Gray-Cyan-Blue.jpg"
+          image="https://cdn.suzukimotorcycle.co.in/public-live/uploads/media-images/original/Gixxer-SF-250-Website-Home-Page-Desktop-2547x1420-new-min_5f759d79c74c8.jpg"
           alt="green iguana"
         />
         <CardContent>
@@ -24,13 +24,13 @@ const CommingSoon = () => {
         <Card sx={{ maxWidth: 300 }}>
         <CardMedia
           component="img"
-          height="250"
+          height="300"
           margin="10"
           image="https://i.pinimg.com/736x/83/25/6a/83256a17d1ece78dc81fd8c67904cb7d--used-suzuki-motorcycles-honda-bikes.jpg"
           alt="green iguana"
         />
         <CardContent>
-          <h2>Suzuki</h2>
+          <h2>Suzuki GXRS</h2>
         </CardContent>
       </Card>
       </Grid>
@@ -38,13 +38,13 @@ const CommingSoon = () => {
         <Card sx={{ maxWidth: 300 }}>
         <CardMedia
           component="img"
-          height="250"
+          height="300"
           margin="10"
           image="https://servicemanualsgsxr.com/wp-content/uploads/2021/06/suzuki-gsx-s950-2021-specifications-12-750x536.jpg"
           alt="green iguana"
         />
         <CardContent>
-          <h2>Suzuki</h2>
+          <h2>Suzuki GXR-300</h2>
         </CardContent>
       </Card>
       </Grid>
