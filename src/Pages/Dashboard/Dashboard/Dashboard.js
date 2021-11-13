@@ -27,7 +27,7 @@ import ManageProducts from '../Admin/ManageProducts/ManageProducts';
 import useAdmin from '../../../hooks/useAdmin';
 import useAuth from '../../../hooks/useAuth';
 import Payment from '../Users/Payment/Payment';
-
+import Footer from '../../Shared/Footer/Footer'
 
 const drawerWidth = 180;
 
@@ -189,6 +189,7 @@ const Dashboard = (props) => {
        <Payment></Payment>
         </Route>
       </Switch>
+      <Footer></Footer>
       </Box>
     </Box>
         </div>

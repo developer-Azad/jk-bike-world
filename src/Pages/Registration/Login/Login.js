@@ -75,11 +75,11 @@ const Login = () => {
              {user?.email && <Alert severity="success">Login successfully</Alert>}
                 {authError && <Alert severity="error">{authError}</Alert>}
              </form>
-             {/* <p>-------------------------------------</p> */}
-             {/* <Button onClick={handleGoogleLogin} 
+             <p>-------------------------------------</p>
+             <Button onClick={handleGoogleLogin} 
                  variant="contained">Google Sign In
-                 </Button> */}
-          </Grid>
+            </Button> 
+          </Grid> 
           </Grid>
         </Container>
     );
