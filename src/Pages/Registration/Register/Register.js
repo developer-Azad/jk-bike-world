@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { useHistory } from 'react-router';
-import { Button, CircularProgress, Container, Grid, TextField, Typography } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
+import { Button, CircularProgress, Grid, TextField, Typography } from '@material-ui/core';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Alert } from '@mui/material';
 import './Register.css'
 import { Box } from '@mui/system';
@@ -11,7 +11,8 @@ import Footer from '../../Shared/Footer/Footer';
 const Register = () => {
     const [loginData, setLoginData] = useState({});
     const history = useHistory();
-    const {user, isLoading, registerUser, authError} = useAuth();
+    const location = useLocation();
+    const {user, isLoading, registerUser, authError, signInWithGoogle} = useAuth();
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -30,6 +31,10 @@ const Register = () => {
         registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
+
+    const handleGoogleLogin = () => {
+        signInWithGoogle(location, history);
+    }
     
     return (
         <>
@@ -41,7 +46,7 @@ const Register = () => {
         justifyContent="center"
         alignItems="center"
         >
-            <Typography variant="h4" gutterBottom>Register</Typography>
+            <Typography className="heading" variant="h4" gutterBottom>Register Please</Typography>
          {!isLoading &&
              <form onSubmit={handleNewRegister}>
             <TextField
@@ -87,14 +92,24 @@ const Register = () => {
             <Button  sx={{width: '75%'}} type="submit"
              variant="contained">Register</Button>
              <br />
+             <br />
              <NavLink style={{textDecoration: 'none'}} to="/login">
-            <Button  
-             variant="text">Already Registered? Please Login</Button>
+            <div className="text-please">
+            <Button variant="text">Already Registered? Please Login</Button>
+            </div>
             </NavLink>
-         </form>}
-         {isLoading && <CircularProgress/>}
+            {isLoading && <CircularProgress/>}
          {user?.email && <Alert severity="success">successfully registered</Alert>}
             {authError && <Alert severity="error">{authError}</Alert>}
+         </form>}
+        
+            <p>-------------------------------------</p>
+             <div className="google-btn">
+             <Button onClick={handleGoogleLogin} 
+                 variant="contained">Google Sign In
+            </Button> 
+             </div>
+      
       </Grid>
       </Grid>
     </Box>

@@ -44,7 +44,7 @@ const Login = () => {
             justifyContent="center"
             alignItems="center"
             >
-                <Typography variant="h4" gutterBottom>Please Login</Typography>
+                <Typography className="heading" variant="h4" gutterBottom>Please Login</Typography>
              <form onSubmit={handleLogin}>
                 <TextField
                 sx={{width: '75%', m: 1}}
@@ -69,22 +69,25 @@ const Login = () => {
                 <Button sx={{width: '75%', m: 1}} type="submit"
                  variant="contained">Login</Button>
                  <br />
-                 
+                 <br />
                  <NavLink style={{textDecoration: 'none'}} to="/register">
-                <Button sx={{color: 'blue'}} variant="text">New User? Please Register
+                     <div  className="text-please">
+                     <Button sx={{color: 'blue'}} variant="text">New User? Please Register
                  </Button>
+                     </div>
+                
                 </NavLink>
                 {isLoading && <CircularProgress/>}
              {user?.email && <Alert severity="success">Login successfully</Alert>}
                 {authError && <Alert severity="error">{authError}</Alert>}
              </form>
              <p>-------------------------------------</p>
+             <div className="google-btn">
              <Button onClick={handleGoogleLogin} 
                  variant="contained">Google Sign In
-            </Button> 
+            </Button></div> 
           </Grid> 
           </Grid>
-        
         </Box>
         <Box>
           <Footer></Footer>
