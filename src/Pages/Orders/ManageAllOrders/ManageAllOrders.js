@@ -16,15 +16,8 @@ const ManageAllOrders = () => {
         <div>
              <Container maxWidth="lg">
             <h2>Manage All Orders </h2>
-            <h4>Total Order : {orders.length}</h4>
-    
       <Grid container spacing={3} columns={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
-        {
-          orders.map(order => <ManageOrder
-          key={order._id}
-          order={order}
-          ></ManageOrder>)
-        }
+       <ManageOrder></ManageOrder>
       </Grid>
             </Container>
         </div>

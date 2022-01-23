@@ -12,10 +12,10 @@ const Products = () => {
   }, [])
     return (
              <Container maxWidth="lg">
-             <h1>Feature Products</h1>
+             <h1 style={{textAlign: "center", margin: "30px"}}>Feature Products</h1>
       <Grid container spacing={3} columns={{ xs: 12, sm: 12, md: 12}}>
         {
-          products.slice(0, 6).map(product => <Product
+          products.slice(products.length-6, products.length).map(product => <Product
           key={product._id}
           product={product}
           ></Product>)

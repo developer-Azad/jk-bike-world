@@ -36,7 +36,7 @@ const Product = ({product}) => {
         </Typography>
       </CardContent>
     <Grid  className="buy-btn">
-    <Button sx={{ my: '10px'}} onClick={handlePurchase}>Buy Now</Button>
+    <Button onClick={handlePurchase}>Buy Now</Button>
         </Grid>
     </Card>
     </Grid>

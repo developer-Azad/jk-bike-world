@@ -8,7 +8,7 @@ const Review = ({UserReview}) => {
   const ratings = parseInt(rating);
     return (
       <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ border: 0, boxShadow: 0 }}>
+      <Card sx={{ height: '100%'}}>
         <CardContent className="review-card">
           <Typography className="user-name" variant="h6" component="div">
           {name}

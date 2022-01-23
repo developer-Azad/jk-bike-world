@@ -18,7 +18,7 @@ const AddProduct = () => {
     })
   } 
     return (
-        <div className="service-form">
+        <div className="">
             <h2 className="text-4xl font-bold text-danger">Add A Product</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 50 })} placeholder="Service Name"/>

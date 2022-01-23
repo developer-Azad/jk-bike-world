@@ -12,7 +12,8 @@ const PurchaseOrder = () => {
     const [orders, setOrders] = useState({});
     const { user } = useAuth();
     const history = useHistory();
-    console.log(orders);
+  
+    const todayDate = new Date();
 
     const { register, handleSubmit } = useForm();
 
@@ -44,22 +45,23 @@ const PurchaseOrder = () => {
       }
     return (
       <>
-      <Container maxWidth="lg">
+      <Container>
             <h1>Product Details</h1>
-            <Grid item  container
-  direction="column"
-  justifyContent="center"
-  margin="30px"
-  alignItems="center">
-      <Card sx={{ maxWidth: 700 }}>
+            <Grid container 
+            spacing={3} 
+            columns={{ xs: 12, sm: 12, md: 12}}
+            height='700px'
+            >
+            <Grid item xs={12} sm={12} md={6} lg={6} >
+      <Card sx={{padding: '20px'}}>
       <CardMedia
         component="img"
-        height="400"
+        height="70%"
         margin="10"
         image={orders.img}
         alt="green iguana"
       />
-      <CardContent>
+      <CardContent >
         <Typography gutterBottom variant="h5" component="div">
           {orders.name}
         </Typography>
@@ -71,14 +73,17 @@ const PurchaseOrder = () => {
         </Typography>
       </CardContent>
     </Card>
-    </Grid>
-            </Container>
-            <div className="service-form">
+            </Grid>
+        
+            <Grid item xs={12} sm={12} md={6} lg={6} sx={{height: '100%'}}>
+            <div className="service-form" >
             <h2>Place Your Order</h2>
             <form  onSubmit={handleSubmit(onSubmit)}>
       <input {...register("name", { required: true, maxLength: 50 })} placeholder="Your name" value={user.displayName}/>
       <br /><br />
       <input {...register("email" )} placeholder="Email" value={user.email} readOnly/>
+      <br /><br />
+      <input {...register("date", { required: true, maxLength: 50 })} placeholder="Product name" value={todayDate}/>
       <br /><br />
       <input {...register("address", { required: true} )} placeholder="Address"/>
       <br /><br />
@@ -87,6 +92,9 @@ const PurchaseOrder = () => {
      <button  className="submit-btn"> <input type="submit" /></button>
     </form>
             </div>
+            </Grid>
+            </Grid>
+            </Container>
             <Footer></Footer>
             </>
 

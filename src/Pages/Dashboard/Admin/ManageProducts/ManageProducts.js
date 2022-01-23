@@ -18,7 +18,7 @@ const ManageProducts = () => {
              <Container maxWidth="lg">
              <h1>Manage Products</h1>
              <Typography sx={{ fontWeight: 500, m: 2, color: 'success.main' }} variant="h6" component="div">
-          OUR Products
+          OUR Products {products.length}
         </Typography>
       <Grid container spacing={3} columns={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
         {

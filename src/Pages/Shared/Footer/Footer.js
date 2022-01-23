@@ -5,10 +5,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <Grid className="footer" sx={{ bgcolor: 'black' }}>
-        <Grid 
-         
-        container spacing={2}
-        >
+        <Grid container spacing={2}>
             
   <Grid
   container
@@ -40,9 +37,9 @@ const Footer = () => {
    alignItems="center"
   item xs={12} sm={6} md={4} lg={4}>
   <h3>Get In Touch</h3>
-                    <h5>Hotline:</h5>
+                    <p>Hotline:</p>
                     <p>01587458774</p>
-                    <h5>Email:</h5>
+                    <p>Email:</p>
                     <p>jkbikeworld@gmail.com</p>
   </Grid>
   {/* <Grid 
