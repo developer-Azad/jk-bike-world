@@ -36,7 +36,7 @@ const ManageOrder = () => {
       <Table sx={{}} aria-label="appointments table">
         <TableHead>
           <TableRow>
-            <TableCell>Name (100g serving)</TableCell>
+            <TableCell>Name</TableCell>
             <TableCell align="right">Status</TableCell>
             <TableCell align="right">Service</TableCell>
             <TableCell align="right">Action</TableCell>
