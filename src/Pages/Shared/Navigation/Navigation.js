@@ -13,9 +13,9 @@ import './Navigation.css'
 const Navigation = () => {
   const {user, logOut} = useAuth();
     return (
-          <div className="navbar">
-            <Box sx={{ flexGrow: 1 }} >
-              <AppBar position="static">
+          // <div className="navbar">
+          //   <Box sx={{ flexGrow: 1 }} >
+              <AppBar position="sticky">
                 <Toolbar className="nav">
                 <IconButton
             size="large"
@@ -29,17 +29,17 @@ const Navigation = () => {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
            JK Bike World
           </Typography>
-          <NavLink  style={{textDecoration: 'none', color: 'white'}} to="/home"><Button color="inherit">Home</Button></NavLink>
+          <NavLink  style={{textDecoration: 'none'}} to="/home"><Button color="inherit">Home</Button></NavLink>
           {
             user?.email ? 
             <Box>
-          <Button onClick={logOut} color="inherit">Log out</Button>
-          <NavLink style={{textDecoration: 'none', color: 'white'}} to="/dashboard">
+          <Button onClick={logOut} >Log out</Button>
+          <NavLink style={{textDecoration: 'none'}} to="/dashboard">
           <Button color="inherit">Dashboard</Button>
           </NavLink>
           </Box>
             :
-            <NavLink style={{textDecoration: 'none', color: 'white'}} to="/login">
+            <NavLink style={{textDecoration: 'none'}} to="/login">
           <Button color="inherit">Login</Button>
           </NavLink>
           
@@ -47,8 +47,8 @@ const Navigation = () => {
           
         </Toolbar>
       </AppBar>
-    </Box>
-    </div>
+    // </Box>
+    // </div>
     );
 };
 

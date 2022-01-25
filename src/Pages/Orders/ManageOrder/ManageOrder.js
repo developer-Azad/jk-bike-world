@@ -3,37 +3,36 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ManageOrder = () => {
-    // const {name, img} = order.order;
+  // const {name, img} = order.order;
 
-    const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
 
-    useEffect( () =>  {
-        fetch('https://salty-beyond-99419.herokuapp.com/orders')
-        .then(res => res.json())
-        .then(data => setOrders(data))
-    }, [])
+  useEffect(() => {
+    fetch('https://salty-beyond-99419.herokuapp.com/orders')
+      .then(res => res.json())
+      .then(data => setOrders(data))
+  }, [])
 
-    const updatedStatus = {status: 'Shipped'};
-    const handleUpdateStatus = id => {
-      fetch(`https://salty-beyond-99419.herokuapp.com/orders/${id}`, {
-        method: 'PUT',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(updatedStatus)
+  const updatedStatus = { status: 'Shipped' };
+  const handleUpdateStatus = id => {
+    fetch(`https://salty-beyond-99419.herokuapp.com/orders/${id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(updatedStatus)
     })
-    .then(res => res.json())
-    .then(data => {
-      if(data.modifiedCount > 0) {
-        alert('order Shipped Successfully');
-        window.location.reload();
-      }
-    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.modifiedCount > 0) {
+          alert('order Shipped Successfully');
+          window.location.reload();
+        }
+      })
   }
-    return (
-      <div>
-        <h2>All Orders : {orders.length}</h2>
-        <TableContainer component={Paper}>
+  return (
+    <div>
+      <h2>All Orders : {orders.length}</h2>
       <Table sx={{}} aria-label="appointments table">
         <TableHead>
           <TableRow>
@@ -41,7 +40,7 @@ const ManageOrder = () => {
             <TableCell align="right">Status</TableCell>
             <TableCell align="right">Service</TableCell>
             <TableCell align="right">Action</TableCell>
-        </TableRow>
+          </TableRow>
         </TableHead>
         <TableBody>
           {orders.map((row) => (
@@ -54,17 +53,16 @@ const ManageOrder = () => {
               </TableCell>
               <TableCell align="right"><button onClick={() => handleUpdateStatus(row._id)}>{row.status}</button></TableCell>
               <TableCell align="right">{row?.order?.name}</TableCell>
-              <TableCell align="right">{row.payment ? 
-              'Paid' : 
-              <Link to={`/dashboard/payment/${row._id}`}><button>Pay</button></Link>
+              <TableCell align="right">{row.payment ?
+                'Paid' :
+                <Link to={`/dashboard/payment/${row._id}`}><button>Pay</button></Link>
               }</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
-        </div>
-    );
+    </div >
+  );
 };
 
 export default ManageOrder;

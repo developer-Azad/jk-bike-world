@@ -15,11 +15,11 @@ const Product = ({product}) => {
       history.push(`/purchaseOrder/${_id}`);
     }
     return (
-      <Grid  item xs={12} sm={6} md={4}>
-      <Card sx={{ height: '100%'}}>
+      <Grid  item xs={12} sm={6} md={4} lg={4}>
+      <Card sx={{ height: '100%' }}>
       <CardMedia
         component="img"
-        height="45%"
+        height="200"
         margin="10"
         image={img}
         alt="green iguana"

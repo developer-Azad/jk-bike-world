@@ -1,9 +1,8 @@
 .navbar Button{
-    color: rgb(51, 255, 0);
+    color: rgb(12, 12, 12);
     text-decoration: none;
     margin-right: 10px;
 }
 .nav{
-    background-color: rgb(255, 89, 89);
-    /* font-weight: 700; */
+    background-color: white;    
 }

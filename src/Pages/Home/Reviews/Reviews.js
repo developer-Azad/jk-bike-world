@@ -13,12 +13,11 @@ const Reviews = () => {
     }, [])
 
     return (
-            <Container maxWidth="lg">
-            <h1>Reviews</h1>
-          <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div">
+            <Container>
+          <h1 style={{textAlign: "center", margin: "30px"}}>
           Happy client reviews
-        </Typography>
-      <Grid container spacing={3} columns={{ xs: 12, sm: 12, md: 12 }}>
+        </h1>
+      <Grid container spacing={3} columns={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
         {
           reviews.map(UserReview => <Review
           key={UserReview._id}

@@ -7,9 +7,9 @@ const Review = ({UserReview}) => {
   const {rating, review, name} = UserReview;
   const ratings = parseInt(rating);
     return (
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} md={4} lg={4}>
       <Card sx={{ height: '100%'}}>
-        <CardContent className="review-card">
+        <div className='review-card'>
           <Typography className="user-name" variant="h6" component="div">
           {name}
           </Typography>
@@ -20,8 +20,7 @@ const Review = ({UserReview}) => {
           <div className="rating">
           <Rating name="read-only" value={ratings} readOnly />
           </div>
-         
-        </CardContent>
+        </div>
       </Card>
    </Grid>
     );

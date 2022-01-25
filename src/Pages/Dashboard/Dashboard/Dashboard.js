@@ -46,13 +46,13 @@ const Dashboard = (props) => {
    
   
     const drawer = (
-      <div>
+      <div >
         <Toolbar />
         <Divider />
         {
           admin?.role ?
           <div>
-          <Link to="/home"><Button color="inherit">Home Page</Button></Link>
+          <Link to="/home"><Button className="dashboard-nav" color="inherit">Home Page</Button></Link>
           <Link to={`${url}`}><Button color="inherit">Dahsboard</Button></Link>
           <Link to={`${url}/manageAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
         <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>

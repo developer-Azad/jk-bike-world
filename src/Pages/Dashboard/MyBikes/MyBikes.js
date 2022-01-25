@@ -20,7 +20,7 @@ const MyBikes = ({date}) => {
 
     return (
         <div>
-        <h2>Appointments : {appointments.length}</h2>
+        <h2>All Bikes : {appointments.length}</h2>
         <TableContainer component={Paper}>
       <Table sx={{}} aria-label="appointments table">
         <TableHead>

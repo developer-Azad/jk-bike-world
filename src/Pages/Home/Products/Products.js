@@ -13,7 +13,7 @@ const Products = () => {
     return (
              <Container maxWidth="lg">
              <h1 style={{textAlign: "center", margin: "30px"}}>Feature Products</h1>
-      <Grid container spacing={3} columns={{ xs: 12, sm: 12, md: 12}}>
+      <Grid container spacing={3} columns={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
         {
           products.slice(products.length-6, products.length).map(product => <Product
           key={product._id}
