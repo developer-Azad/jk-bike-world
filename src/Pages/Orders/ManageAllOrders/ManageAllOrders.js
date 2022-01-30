@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
 
     return (
         <Container>
-            <Grid container spacing={3} columns={{ xs: 1, sm: 1, md: 2, lg: 3 }}>
+            <Grid container>
                 <ManageOrder></ManageOrder>
             </Grid>
         </Container>

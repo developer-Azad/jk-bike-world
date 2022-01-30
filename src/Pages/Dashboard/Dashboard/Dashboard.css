@@ -1,4 +1,12 @@
+.dashboard-nav{
+    text-decoration: none;
+    background-color: tomato;
+}
 .dashboard-nav Button{
     text-decoration: none;
     background-color: tomato;
+}
+.db-title{
+    color: blue;
+    text-align: center;
 }

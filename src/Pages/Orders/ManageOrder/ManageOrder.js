@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ManageOrder = () => {
-  // const {name, img} = order.order;
-
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -30,6 +28,22 @@ const ManageOrder = () => {
         }
       })
   }
+ 
+  const myorder = orders.map(order => order.status)
+  let col ="red";
+
+    for(let i = 1; i <= myorder.length; i++){
+      const kal = myorder[i];
+      if (kal === "Shipped") {
+        col = "green";
+      }
+      if(kal === "Pending"){
+        col = "blue"
+      }
+      // console.log(col);
+    }
+  console.log();
+
   return (
     <div>
       <h2>All Orders : {orders.length}</h2>
@@ -51,7 +65,7 @@ const ManageOrder = () => {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right"><button onClick={() => handleUpdateStatus(row._id)}>{row.status}</button></TableCell>
+              <TableCell align="right"><button style={{ color: `${col}` }} onClick={() => handleUpdateStatus(row._id)}>{row.status}</button></TableCell>
               <TableCell align="right">{row?.order?.name}</TableCell>
               <TableCell align="right">{row.payment ?
                 'Paid' :
@@ -60,6 +74,7 @@ const ManageOrder = () => {
             </TableRow>
           ))}
         </TableBody>
+        
       </Table>
     </div >
   );
