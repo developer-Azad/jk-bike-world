@@ -29,20 +29,20 @@ const ManageOrder = () => {
       })
   }
  
-  const myorder = orders.map(order => order.status)
+  // const myorder = orders.map(order => order.status)
   let col ="red";
 
-    for(let i = 1; i <= myorder.length; i++){
-      const kal = myorder[i];
-      if (kal === "Shipped") {
-        col = "green";
-      }
-      if(kal === "Pending"){
-        col = "blue"
-      }
-      // console.log(col);
-    }
-  console.log();
+  //   for(let i = 1; i <= myorder.length; i++){
+  //     const kal = myorder[i];
+  //     if (kal === "Shipped") {
+  //       col = "green";
+  //     }
+  //     if(kal === "Pending"){
+  //       col = "blue"
+  //     }
+  //     // console.log(col);
+  //   }
+  // console.log();
 
   return (
     <div>
