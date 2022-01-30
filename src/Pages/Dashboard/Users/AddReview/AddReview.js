@@ -28,7 +28,7 @@ const AddReview = () => {
       <br />
       <input {...register("rating", { required: true})} placeholder="Rating (0-5)"/>
       <br />
-      <input className="confirm-btn submit-field" type="submit" />
+          <button className="submit-btn"> <input type="submit" /></button>
     </form>
     </div>
     );

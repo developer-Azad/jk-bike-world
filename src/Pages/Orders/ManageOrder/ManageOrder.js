@@ -1,4 +1,4 @@
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
+import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -29,30 +29,55 @@ const ManageOrder = () => {
       })
   }
  
-  // const myorder = orders.map(order => order.status)
-  let col ="red";
+  const myorder = orders.map(order => order.status);
+  const order = orders.map(order => order);
+  const pendingOrders = order.filter(order => order.status === 'Pending');
+  // pending orders price calculation
+  const totalPendingOrder = pendingOrders.map(order => order?.order?.price);
+  let totalPendingPrice = 0;
+  for (const element of totalPendingOrder) {
+    totalPendingPrice += parseInt(element);
+  }
 
-  //   for(let i = 1; i <= myorder.length; i++){
-  //     const kal = myorder[i];
-  //     if (kal === "Shipped") {
-  //       col = "green";
-  //     }
-  //     if(kal === "Pending"){
-  //       col = "blue"
-  //     }
-  //     // console.log(col);
-  //   }
-  // console.log();
+  let col ="";
+
+    for(let i = 1; i <= myorder.length; i++){
+      const kal = myorder[i];
+      if (kal === "Shipped") {
+        col = "green";
+      }
+      if(kal === "Pending"){
+        col = "blue"
+      }
+    }
+  //total price calculation
+  const totalOrderedPrice = orders.map(order => order?.order?.price);
+  let totalPrice = 0;
+  for (const element of totalOrderedPrice) {
+    totalPrice += parseInt(element);
+  }
 
   return (
-    <div>
-      <h2>All Orders : {orders.length}</h2>
+    <div style={{marginBottom: '30px'}}>
+      <Grid container>
+        <Grid item xs={12} sm={12} md={6}>
+          <h2 style={{ paddingLeft: '30px' }}>All Orders : {orders.length}</h2>
+          <h2 style={{ paddingLeft: '30px' }}>Total Price : $<span style={{ color: 'blue' }}>{totalPrice}</span></h2>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <h2 style={{ paddingLeft: '30px' }}>Pending Orders : {pendingOrders.length}</h2>
+          <h2 style={{ paddingLeft: '30px' }}>Pending Price : $<span style={{ color: 'red' }}>{totalPendingPrice}</span></h2>
+        </Grid>
+      </Grid>
       <Table sx={{}} aria-label="appointments table">
         <TableHead>
           <TableRow>
+            <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
+            <TableCell>Address</TableCell>
             <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Service</TableCell>
+            <TableCell align="right">Product Name</TableCell>
+            <TableCell align="right">Price</TableCell>
             <TableCell align="right">Action</TableCell>
           </TableRow>
         </TableHead>
@@ -62,11 +87,12 @@ const ManageOrder = () => {
               key={row._id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
+              <TableCell component="th" scope="row">{row.date}</TableCell>
+              <TableCell component="th" scope="row">{row.name}</TableCell>
+              <TableCell component="th" scope="row">{row.address}</TableCell>
               <TableCell align="right"><button style={{ color: `${col}` }} onClick={() => handleUpdateStatus(row._id)}>{row.status}</button></TableCell>
               <TableCell align="right">{row?.order?.name}</TableCell>
+              <TableCell align="right">${row?.order?.price}</TableCell>
               <TableCell align="right">{row.payment ?
                 'Paid' :
                 <Link to={`/dashboard/payment/${row._id}`}><button>Pay</button></Link>
@@ -74,7 +100,6 @@ const ManageOrder = () => {
             </TableRow>
           ))}
         </TableBody>
-        
       </Table>
     </div >
   );

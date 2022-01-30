@@ -4,11 +4,3 @@
     border: none;
     font-weight: 600;
 }
-
-.submit-btn input{
-    background-color: tomato;
-    width: 50%;
-    border-radius: 30px;
-    border: none;
-    height: 40px;
-}

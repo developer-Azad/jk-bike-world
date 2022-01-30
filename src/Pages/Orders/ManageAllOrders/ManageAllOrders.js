@@ -13,11 +13,7 @@ const ManageAllOrders = () => {
     }, [])
 
     return (
-        <Container>
-            <Grid container>
-                <ManageOrder></ManageOrder>
-            </Grid>
-        </Container>
+        <ManageOrder></ManageOrder>
     );
 };
 
